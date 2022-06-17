@@ -1,0 +1,35 @@
+@import "../../scss/abstracts/_variables.scss";
+
+.pagination {
+	display: flex;
+	margin-top: 30px;
+
+	.pagination_btn {
+		border: 2px solid $white;
+		padding: 15px;
+		width: 40px;
+		height: 40px;
+		margin-right: 5px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: $white;
+		text-decoration: none;
+		cursor: pointer;
+		transition: $transition;
+
+		&:nth-last-child(1) {
+			margin-right: 0;
+		}
+
+		&:hover {
+			border: 2px solid $accent-color;
+			background-color: $accent-color;
+		}
+	}
+
+	._active {
+		border: 2px solid $accent-color;
+		background-color: $accent-color;
+	}
+}

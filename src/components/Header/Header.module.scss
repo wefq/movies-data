@@ -1,0 +1,22 @@
+@import "../../scss/abstracts/variables.scss";
+
+.header {
+	height: 70px;
+	margin-bottom: 30px;
+	background: $accent-color;
+	display: flex;
+
+	&__container {
+		width: 100%;
+		display: flex;
+		align-items: center;
+	}
+}
+
+.logo {
+	width: 50px;
+	img {
+		width: 100%;
+	}
+	margin-right: 20px;
+}

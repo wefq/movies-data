@@ -1,26 +1,24 @@
-import { useState, useEffect } from "react";
-import useFetch from "./useFetch.js";
-import Main from "./entities/Main.js";
-import MovieContainer from "./components/MovieContainer.js";
-import Pagination from "./components/Pagination.js";
-import "./App.scss";
+import { BrowserRouter, Routes, Route, Link, Navigate } from "react-router-dom";
+import Header from "./components/Header/Header.js";
+import HomePage from "./pages/HomePage/HomePage.js";
+import FiltersPage from "./pages/FiltersPage/FiltersPage.js";
+import MoviePage from "./pages/MoviePage/MoviePage.js";
 
 function App() {
-	const [currentPage, setCurrentPage] = useState(1);
-
-	const { data, isPending, error } = useFetch(`/films?page=${currentPage}`);
-
-	const paginate = (number) => {
-		setCurrentPage(number);
-	};
-
 	return (
 		<div className="App">
-			{error && <div>{error}</div>}
-			{isPending && <div>...Loading</div>}
+			<BrowserRouter>
+				<Header />
 
-			{data && <MovieContainer data={data} />}
-			{data && <Pagination totalPages={data.totalPages} paginate={paginate} />}
+				<main>
+					<Routes>
+						<Route path="/" element={<HomePage />} />
+						<Route path="/filters" element={<FiltersPage />} />
+
+						<Route path="/film/:id/*" element={<MoviePage />} />
+					</Routes>
+				</main>
+			</BrowserRouter>
 		</div>
 	);
 }
