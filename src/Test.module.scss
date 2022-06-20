@@ -1,0 +1,33 @@
+@import "./scss/abstracts/variables";
+
+.box {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 30px;
+	margin: 60px auto;
+	width: fit-content;
+}
+
+.button {
+	background: none;
+	border: none;
+	text-decoration: none;
+
+	font-size: $text;
+	color: $white;
+	letter-spacing: 0.5px;
+	line-height: 110%;
+
+	background-color: $accent-color;
+	border-radius: 6px;
+	padding: 7px 15px;
+	width: 100%;
+
+	cursor: pointer;
+    transition: $transition;
+
+    &:hover{
+        background-color: $additional-color;
+    }
+}

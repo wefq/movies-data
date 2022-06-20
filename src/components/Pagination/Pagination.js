@@ -11,7 +11,13 @@ const Pagination = ({ totalPages, currentPage, paginate }) => {
 
 	return (
 		<div className={style.pagination + " container"}>
-			{currentPage < 6 && (
+			{totalPages < 6 &&
+				pageNumbers.map((number) => {
+					console.log("script worked");
+					return <PaginationBtn paginate={paginate} number={number} currentPage={currentPage} key={number} />;
+				})}
+
+			{currentPage < 6 && totalPages > 6 && (
 				<Fragment>
 					{pageNumbers.slice(0, 6).map((number) => (
 						<PaginationBtn paginate={paginate} number={number} currentPage={currentPage} key={number} />
@@ -21,7 +27,7 @@ const Pagination = ({ totalPages, currentPage, paginate }) => {
 				</Fragment>
 			)}
 
-			{currentPage > 5 && currentPage < totalPages - 4 && (
+			{currentPage > 5 && currentPage < totalPages - 4 && totalPages > 6 && (
 				<Fragment>
 					<PaginationBtn paginate={paginate} number={1} currentPage={currentPage} />
 
@@ -33,7 +39,7 @@ const Pagination = ({ totalPages, currentPage, paginate }) => {
 				</Fragment>
 			)}
 
-			{currentPage > totalPages - 5 && (
+			{currentPage > totalPages - 5 && totalPages > 6 &&(
 				<Fragment>
 					<PaginationBtn paginate={paginate} number={1} currentPage={currentPage} />
 

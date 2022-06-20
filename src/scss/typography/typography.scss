@@ -1,5 +1,3 @@
-
-
 .headline_first {
 	@include headline;
 
@@ -39,7 +37,9 @@
 	color: $white;
 	transition: $transition;
 
-	&:hover{
+	&:hover {
 		color: $additional-color;
 	}
 }
+
+

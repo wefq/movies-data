@@ -1,3 +1,16 @@
 @mixin headline {
-    font-weight: 600;
+	font-weight: 600;
+}
+
+@mixin input-field {
+	color: $black;
+	font-size: 16px;
+	font-family: inherit;
+}
+
+@mixin form-headline {
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 32px;
+	color: $black;
 }

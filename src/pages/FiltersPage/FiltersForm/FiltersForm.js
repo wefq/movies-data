@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
-import Select from "react-select";
+import FiltersSelect from "./FiltersSelect.js";
+import FiltersRange from "./FiltersRange.js";
+import Button from "../../../components/Button/Button.js";
 import style from "./FiltersForm.module.scss";
 
 const FiltersForm = ({ setCurrentPage, setParams }) => {
@@ -34,8 +36,8 @@ const FiltersForm = ({ setCurrentPage, setParams }) => {
 		fetchData();
 	}, []);
 
-	const GENRE_OPTIONS = [{ value: 0, label: "" }];
-	const COUNTRY_OPTIONS = [{ value: 0, label: "" }];
+	const GENRE_OPTIONS = [];
+	const COUNTRY_OPTIONS = [];
 
 	FiltersForm && FiltersForm.genres.map((item) => GENRE_OPTIONS.push({ value: item.id, label: item.genre }));
 	FiltersForm && FiltersForm.countries.map((item) => COUNTRY_OPTIONS.push({ value: item.id, label: item.country }));
@@ -71,69 +73,33 @@ const FiltersForm = ({ setCurrentPage, setParams }) => {
 		setCurrentPage(1);
 	};
 
+	const handleClear = () => {
+		setGenre(null);
+		setCountry(null);
+		setYearFrom("");
+		setYearTo("");
+		setRatingFrom("");
+		setRatingTo("");
+	};
+
 	return (
 		<form className={style.filters_container + " container"} onSubmit={handleSubmit}>
-			<div>
-				<label>Жанр</label>
-				<Select value={genre} options={GENRE_OPTIONS} onChange={handleGenreChange} />
+			<div className={style.filters_container__form_group}>
+				<FiltersSelect options={GENRE_OPTIONS} value={genre} onChange={handleGenreChange} name={"Жанр"} />
+
+				<FiltersSelect options={COUNTRY_OPTIONS} value={country} onChange={handleCountryChange} name={"Страна"} />
 			</div>
 
-			<div>
-				<label>Страна</label>
-				<Select value={country} options={COUNTRY_OPTIONS} onChange={handleCountryChange} />
+			<div className={style.filters_container__form_group}>
+				<FiltersRange valueFrom={yearFrom} valueTo={yearTo} setValueFrom={setYearFrom} setValueTo={setYearTo} name="Год" />
+
+				<FiltersRange valueFrom={ratingFrom} valueTo={ratingTo} setValueFrom={setRatingFrom} setValueTo={setRatingTo} name="Рейтинг" />
 			</div>
 
-			<div>
-				<label>Год</label>
-				<div>
-					<label>От</label>
-					<input
-						type="number"
-						value={yearFrom}
-						onChange={(e) => {
-							setYearFrom(e.target.value);
-						}}
-					/>
-				</div>
-
-				<div>
-					<label>До</label>
-					<input
-						type="number"
-						value={yearTo}
-						onChange={(e) => {
-							setYearTo(e.target.value);
-						}}
-					/>
-				</div>
+			<div className={style.filters_container__control}>
+				<Button type="submit" value="Поиск" />
+				<Button type="button" onClick={handleClear} children="Очистить"/>
 			</div>
-
-			<div>
-				<label>Рейтинг</label>
-				<div>
-					<label>От</label>
-					<input
-						type="number"
-						value={ratingFrom}
-						onChange={(e) => {
-							setRatingFrom(e.target.value);
-						}}
-					/>
-				</div>
-
-				<div>
-					<label>До</label>
-					<input
-						type="number"
-						value={ratingTo}
-						onChange={(e) => {
-							setRatingTo(e.target.value);
-						}}
-					/>
-				</div>
-			</div>
-
-			<input type="submit" value="Поиск" />
 		</form>
 	);
 };

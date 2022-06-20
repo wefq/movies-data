@@ -1,0 +1,27 @@
+@import "../../scss/abstracts/_variables.scss"; 
+
+.button {
+	background: none;
+	border: none;
+	text-decoration: none;
+
+	font-size: $text;
+	color: $white;
+	letter-spacing: 0.5px;
+
+	background-color: $accent-color;
+	border-radius: 6px;
+	padding: 7px 15px;
+	// width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+	cursor: pointer;
+	transition: $transition;
+
+	&:hover {
+		background-color: $additional-color;
+	}
+}
