@@ -1,10 +1,10 @@
-import { useState, useEffect } from "react";
-import MovieContainer from "../../components/MovieContainer/MovieContainer";
-import Pagination from "../../components/Pagination/Pagination";
-import Loading from "../../components/Loading/Loading";
-import useFetch from "../../useFetch";
+import { useState } from "react";
+import { useFetch } from "../../useFetch.js";
+import { Section } from "../../components/Section/Section.js";
+import { Loading } from "../../components/Loading/Loading.js";
+import { MovieContainer } from "../../components/MovieContainer/MovieContainer.js";
 
-const HomePage = () => {
+export const HomePage = () => {
 	const [currentPage, setCurrentPage] = useState(1);
 
 	const { data, isPending, error } = useFetch(`/films?page=${currentPage}`);
@@ -14,13 +14,10 @@ const HomePage = () => {
 	};
 
 	return (
-		<section className="section">
+		<Section>
 			{error && <div>{error}</div>}
 
-			{isPending ? <Loading /> : <MovieContainer data={data} />}
-			{data && <Pagination totalPages={data.totalPages} currentPage={currentPage} paginate={paginate} />}
-		</section>
+			{isPending ? <Loading /> : <MovieContainer data={data} currentPage={currentPage} paginate={paginate} />}
+		</Section>
 	);
 };
-
-export default HomePage;

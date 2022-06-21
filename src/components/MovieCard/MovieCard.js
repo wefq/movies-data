@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom";
 import style from "./MovieCard.module.scss";
 
-const MovieCard = ({ movie }) => {
+export const MovieCard = ({ movie }) => {
 	return (
 		<div className={style.movie_card}>
-			
 			<div className={style.movie_card__img}>
 				<img src={movie.posterUrlPreview} alt="movie-poster" />
 			</div>
@@ -24,10 +23,8 @@ const MovieCard = ({ movie }) => {
 					</div>
 				</div>
 			</div>
-			
+
 			<Link className={style.movie_card__link} to={`/film/${movie.kinopoiskId}`}></Link>
 		</div>
 	);
 };
-
-export default MovieCard;

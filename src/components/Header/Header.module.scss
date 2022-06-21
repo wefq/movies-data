@@ -1,4 +1,4 @@
-@import "../../scss/abstracts/variables.scss";
+@import "../../scss/abstracts/_variables.scss";
 
 .header {
 	height: 70px;
@@ -7,16 +7,19 @@
 	display: flex;
 
 	&__container {
+		max-width: 1240px;
 		width: 100%;
+		margin: 0 auto;
 		display: flex;
 		align-items: center;
 	}
+
+	&__logo {
+		width: 50px;
+		img {
+			width: 100%;
+		}
+		margin-right: 20px;
+	}
 }
 
-.logo {
-	width: 50px;
-	img {
-		width: 100%;
-	}
-	margin-right: 20px;
-}

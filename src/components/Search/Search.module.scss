@@ -1,1 +1,8 @@
-@import '../../scss/abstracts/_variables.scss';
+@import "../../scss/abstracts/_variables.scss";
+
+.search_bar {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+	margin-left: auto;
+}

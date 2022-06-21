@@ -47,15 +47,6 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 }
 
-.container {
-	max-width: 1240px;
-	margin: 0 auto;
-}
-
-.section {
-	margin-bottom: 30px;
-}
-
 .select_container {
 	width: 100%;
 }
@@ -106,4 +97,12 @@ body {
 		color: $additional-color !important;
 		opacity: 0.5 !important;
 	}
+}
+
+.accent{
+	background-color: $accent-color;
+}
+
+.primary{
+	background-color: $primary-color;
 }

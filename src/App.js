@@ -1,9 +1,10 @@
 import { BrowserRouter, Routes, Route, Link, Navigate } from "react-router-dom";
-import Header from "./components/Header/Header.js";
-import HomePage from "./pages/HomePage/HomePage.js";
-import FiltersPage from "./pages/FiltersPage/FiltersPage.js";
-import MoviePage from "./pages/MoviePage/MoviePage.js";
-import Test from './Test.js'
+import {Header} from "./components/Header/Header.js";
+import {HomePage} from "./pages/HomePage/HomePage.js";
+import {FiltersPage} from "./pages/FiltersPage/FiltersPage.js";
+import {MoviePage} from "./pages/MoviePage/MoviePage.js";
+import {Test} from "./Test.js";
+import {SearchPage} from "./pages/SearchPage/SearchPage.js";
 
 function App() {
 	return (
@@ -18,6 +19,7 @@ function App() {
 
 						<Route path="/film/:id/*" element={<MoviePage />} />
 						<Route path="/test" element={<Test />} />
+						<Route path="/search" element={<SearchPage />} />
 					</Routes>
 				</main>
 			</BrowserRouter>

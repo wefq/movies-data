@@ -1,9 +1,7 @@
 import Select from "react-select";
-import style from "./FiltersForm.module.scss";
-import "../../../scss/index.scss"
+import "../../../scss/index.scss";
 
-const FiltersSelect = ({ options, name, onChange, value }) => {
-	
+export const FiltersSelect = ({ options, name, onChange, value }) => {
 	return (
 		<div className="select_container">
 			<span>{name}</span>
@@ -11,5 +9,3 @@ const FiltersSelect = ({ options, name, onChange, value }) => {
 		</div>
 	);
 };
-
-export default FiltersSelect;

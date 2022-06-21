@@ -1,11 +1,11 @@
 import { useState } from "react";
-import MovieContainer from "../../components/MovieContainer/MovieContainer.js";
-import Pagination from "../../components/Pagination/Pagination.js";
-import FiltersForm from "./FiltersForm/FiltersForm.js";
-import useFetch from "../../useFetch.js";
-import Loading from "../../components/Loading/Loading.js";
+import { useFetch } from "../../useFetch.js";
+import { Section } from "../../components/Section/Section.js";
+import { FiltersForm } from "./FiltersForm/FiltersForm.js";
+import { Loading } from "../../components/Loading/Loading.js";
+import { MovieContainer } from "../../components/MovieContainer/MovieContainer.js";
 
-const FiltersPage = () => {
+export const FiltersPage = () => {
 	const [params, setParams] = useState("");
 	const [currentPage, setCurrentPage] = useState(1);
 
@@ -16,13 +16,10 @@ const FiltersPage = () => {
 	};
 
 	return (
-		<section className="section">
+		<Section>
 			<FiltersForm setCurrentPage={setCurrentPage} setParams={setParams} />
 
-			{isPending ? <Loading /> : <MovieContainer data={data} />}
-			{data && <Pagination totalPages={data.totalPages} currentPage={currentPage} paginate={paginate} />}
-		</section>
+			{isPending ? <Loading /> : <MovieContainer data={data} currentPage={currentPage} paginate={paginate} />}
+		</Section>
 	);
 };
-
-export default FiltersPage;

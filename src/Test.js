@@ -1,9 +1,9 @@
 import { useState } from "react";
 import style from "./Test.module.scss";
-import Button from "./components/Button/Button";
+import {Button} from "./components/Button/Button.js";
 
-const Test = () => {
-	const [select, setSelect] = useState(null);
+export const Test = () => {
+	const [select, setSelect] = useState("");
 
 	const handleSub = (e) => {
 		e.preventDefault();
@@ -54,5 +54,3 @@ const Test = () => {
 		// </div>
 	);
 };
-
-export default Test;

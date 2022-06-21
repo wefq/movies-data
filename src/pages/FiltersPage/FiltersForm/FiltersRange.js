@@ -1,12 +1,12 @@
+import { InputField } from "../../../components/InputField/InputField.js";
 import style from "./FiltersRange.module.scss";
 
-const FiltersRange = ({ setValueFrom, setValueTo, valueFrom, valueTo, name }) => {
+export const FiltersRange = ({ setValueFrom, setValueTo, valueFrom, valueTo, name }) => {
 	return (
 		<div className={style.filter_range}>
 			<span>{name}</span>
 
-			<input
-				className={style.filter_range__input}
+			<InputField
 				type="number"
 				placeholder="от"
 				value={valueFrom}
@@ -15,8 +15,7 @@ const FiltersRange = ({ setValueFrom, setValueTo, valueFrom, valueTo, name }) =>
 				}}
 			/>
 
-			<input
-				className={style.filter_range__input}
+			<InputField
 				type="number"
 				placeholder="до"
 				value={valueTo}
@@ -27,5 +26,3 @@ const FiltersRange = ({ setValueFrom, setValueTo, valueFrom, valueTo, name }) =>
 		</div>
 	);
 };
-
-export default FiltersRange;

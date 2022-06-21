@@ -1,15 +1,19 @@
-import MovieCard from "../MovieCard/MovieCard.js";
+import { Fragment } from "react";
+import { MovieCard } from "../MovieCard/MovieCard.js";
+import { Pagination } from "../Pagination/Pagination.js";
 import style from "./MovieContainer.module.scss";
 
-const MovieContainer = ({ data, totalPages }) => {
+export const MovieContainer = ({ data, currentPage, paginate }) => {
 	return (
-		<div className={style.movie_box + " container"}>
-			{data &&
-				data.items.map((movie) => {
-					return <MovieCard movie={movie} key={movie.kinopoiskId} />;
-				})}
-		</div>
+		<Fragment>
+			<div className={style.movie_box}>
+				{data &&
+					data.items.map((movie) => {
+						return <MovieCard movie={movie} key={movie.kinopoiskId} />;
+					})}
+			</div>
+
+			<Pagination totalPages={data.totalPages} currentPage={currentPage} paginate={paginate} />
+		</Fragment>
 	);
 };
-
-export default MovieContainer;

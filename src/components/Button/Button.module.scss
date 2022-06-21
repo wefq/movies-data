@@ -1,7 +1,7 @@
 @import "../../scss/abstracts/_variables.scss"; 
 
 .button {
-	background: none;
+	// background: none;
 	border: none;
 	text-decoration: none;
 
@@ -9,10 +9,9 @@
 	color: $white;
 	letter-spacing: 0.5px;
 
-	background-color: $accent-color;
+	// background-color: $accent-color;
 	border-radius: 6px;
 	padding: 7px 15px;
-	// width: 100%;
 
     display: flex;
     justify-content: center;

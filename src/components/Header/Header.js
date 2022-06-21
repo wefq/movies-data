@@ -1,20 +1,20 @@
-import Navbar from "../Navbar/Navbar";
+import { Navbar } from "../Navbar/Navbar.js";
+import { Search } from "../Search/Search.js";
 import style from "./Header.module.scss";
 
 const logo = require("../../assets/action.png");
 
-const Header = () => {
+export const Header = () => {
 	return (
 		<header className={style.header}>
-			<div className={style.header__container + " container"}>
-				<div className={style.logo}>
-					<img src={logo} alt="" />
+			<div className={style.header__container}>
+				<div className={style.header__logo}>
+					<img src={logo} alt="header-logo" />
 				</div>
 
 				<Navbar />
+				<Search />
 			</div>
 		</header>
 	);
 };
-
-export default Header;

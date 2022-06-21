@@ -1,12 +1,11 @@
-import { useState, useEffect } from "react";
-import FiltersSelect from "./FiltersSelect.js";
-import FiltersRange from "./FiltersRange.js";
-import Button from "../../../components/Button/Button.js";
+import { useState } from "react";
+import { useFetch } from "../../../useFetch.js";
+import { FiltersSelect } from "./FiltersSelect.js";
+import { FiltersRange } from "./FiltersRange.js";
+import { Button } from "../../../components/Button/Button.js";
 import style from "./FiltersForm.module.scss";
 
-const FiltersForm = ({ setCurrentPage, setParams }) => {
-	const [FiltersForm, setFiltersForm] = useState(null);
-
+export const FiltersForm = ({ setCurrentPage, setParams }) => {
 	const [genre, setGenre] = useState(null);
 	const [country, setCountry] = useState(null);
 
@@ -16,31 +15,13 @@ const FiltersForm = ({ setCurrentPage, setParams }) => {
 	const [ratingFrom, setRatingFrom] = useState("");
 	const [ratingTo, setRatingTo] = useState("");
 
-	useEffect(() => {
-		async function fetchData() {
-			let res = await fetch("https://kinopoiskapiunofficial.tech/api/v2.2/films/filters", {
-				method: "GET",
-				headers: {
-					"Content-Type": "application/json",
-					"X-API-KEY": "642d88ed-a41b-4faa-8ee5-871d60cd7ad9",
-				},
-			});
-
-			if (!res.ok) throw Error("could not fetch data for that resource");
-
-			let json = await res.json();
-
-			setFiltersForm(json);
-		}
-
-		fetchData();
-	}, []);
+	const { data, isPending, error } = useFetch(`/films/filters`);
 
 	const GENRE_OPTIONS = [];
 	const COUNTRY_OPTIONS = [];
 
-	FiltersForm && FiltersForm.genres.map((item) => GENRE_OPTIONS.push({ value: item.id, label: item.genre }));
-	FiltersForm && FiltersForm.countries.map((item) => COUNTRY_OPTIONS.push({ value: item.id, label: item.country }));
+	data && data.genres.map((item) => GENRE_OPTIONS.push({ value: item.id, label: item.genre }));
+	data && data.countries.map((item) => COUNTRY_OPTIONS.push({ value: item.id, label: item.country }));
 
 	const handleGenreChange = (value) => {
 		setGenre(value);
@@ -97,11 +78,9 @@ const FiltersForm = ({ setCurrentPage, setParams }) => {
 			</div>
 
 			<div className={style.filters_container__control}>
-				<Button type="submit" value="Поиск" />
-				<Button type="button" onClick={handleClear} children="Очистить"/>
+				<Button btn="accent" children="Поиск" />
+				<Button btn="accent" onClick={handleClear} children="Очистить" />
 			</div>
 		</form>
 	);
 };
-
-export default FiltersForm;

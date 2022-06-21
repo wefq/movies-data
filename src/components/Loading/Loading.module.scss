@@ -1,8 +1,4 @@
-@import "../../scss/abstracts/variables.scss";
-
-@function loading_container-height (){
-
-}
+@import "../../scss/abstracts/_variables.scss";
 
 .loading_container {
 	height: calc(90vh - $header-height);

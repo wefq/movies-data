@@ -1,8 +1,8 @@
-import style from "./Pagination.module.scss";
-import PaginationBtn from "./PaginationBtn.js";
 import { Fragment } from "react";
+import { PaginationBtn } from "./PaginationBtn.js";
+import style from "./Pagination.module.scss";
 
-const Pagination = ({ totalPages, currentPage, paginate }) => {
+export const Pagination = ({ totalPages, currentPage, paginate }) => {
 	const pageNumbers = [];
 
 	for (let i = 1; i <= totalPages; i++) {
@@ -11,7 +11,10 @@ const Pagination = ({ totalPages, currentPage, paginate }) => {
 
 	return (
 		<div className={style.pagination + " container"}>
+			{totalPages === 1 && null}
+
 			{totalPages < 6 &&
+				totalPages !== 1 &&
 				pageNumbers.map((number) => {
 					console.log("script worked");
 					return <PaginationBtn paginate={paginate} number={number} currentPage={currentPage} key={number} />;
@@ -39,7 +42,7 @@ const Pagination = ({ totalPages, currentPage, paginate }) => {
 				</Fragment>
 			)}
 
-			{currentPage > totalPages - 5 && totalPages > 6 &&(
+			{currentPage > totalPages - 5 && totalPages > 6 && (
 				<Fragment>
 					<PaginationBtn paginate={paginate} number={1} currentPage={currentPage} />
 
@@ -51,5 +54,3 @@ const Pagination = ({ totalPages, currentPage, paginate }) => {
 		</div>
 	);
 };
-
-export default Pagination;
