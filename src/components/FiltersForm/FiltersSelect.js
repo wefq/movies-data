@@ -1,5 +1,5 @@
 import Select from "react-select";
-import "../../../scss/index.scss";
+import "../../scss/index.scss";
 
 export const FiltersSelect = ({ options, name, onChange, value }) => {
 	return (

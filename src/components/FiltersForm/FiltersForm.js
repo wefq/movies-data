@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { useFetch } from "../../../useFetch.js";
+import { useFetch } from "../../useFetch.js";
 import { FiltersSelect } from "./FiltersSelect.js";
 import { FiltersRange } from "./FiltersRange.js";
-import { Button } from "../../../components/Button/Button.js";
+import { Button } from "../Button/Button.js";
 import style from "./FiltersForm.module.scss";
 
 export const FiltersForm = ({ setCurrentPage, setParams }) => {
@@ -64,22 +64,22 @@ export const FiltersForm = ({ setCurrentPage, setParams }) => {
 	};
 
 	return (
-		<form className={style.filters_container + " container"} onSubmit={handleSubmit}>
-			<div className={style.filters_container__form_group}>
+		<form className={style.filters + " container"} onSubmit={handleSubmit}>
+			<div className={style.filters__form_group}>
 				<FiltersSelect options={GENRE_OPTIONS} value={genre} onChange={handleGenreChange} name={"Жанр"} />
 
 				<FiltersSelect options={COUNTRY_OPTIONS} value={country} onChange={handleCountryChange} name={"Страна"} />
 			</div>
 
-			<div className={style.filters_container__form_group}>
+			<div className={style.filters__form_group}>
 				<FiltersRange valueFrom={yearFrom} valueTo={yearTo} setValueFrom={setYearFrom} setValueTo={setYearTo} name="Год" />
 
 				<FiltersRange valueFrom={ratingFrom} valueTo={ratingTo} setValueFrom={setRatingFrom} setValueTo={setRatingTo} name="Рейтинг" />
 			</div>
 
-			<div className={style.filters_container__control}>
-				<Button btn="accent" children="Поиск" />
-				<Button btn="accent" onClick={handleClear} children="Очистить" />
+			<div className={style.filters__control}>
+				<Button type="accent" children="Поиск" />
+				<Button type="accent" onClick={handleClear} children="Очистить" />
 			</div>
 		</form>
 	);

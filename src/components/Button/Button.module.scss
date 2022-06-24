@@ -1,26 +1,39 @@
-@import "../../scss/abstracts/_variables.scss"; 
+@import "../../scss/abstracts/_variables.scss";
 
 .button {
-	// background: none;
+	background: none;
 	border: none;
 	text-decoration: none;
 
+	font-family: inherit;
 	font-size: $text;
-	color: $white;
+	font-weight: 500;
+	color: inherit;
 	letter-spacing: 0.5px;
 
-	// background-color: $accent-color;
-	border-radius: 6px;
+	box-shadow: $shadow;
+	border-radius: 20px;
 	padding: 7px 15px;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 
 	cursor: pointer;
 	transition: $transition;
 
 	&:hover {
-		background-color: $additional-color;
 	}
+}
+
+.accent {
+	background: $black;
+	color: $white;
+	&:hover {
+		background: $white;
+		color: $black;
+	}
+}
+
+.primary {
 }

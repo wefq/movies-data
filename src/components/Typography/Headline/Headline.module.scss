@@ -1,0 +1,24 @@
+@import "../../../scss/abstracts/_mixins.scss";
+@import "../../../scss/abstracts/_variables.scss";
+
+.headline_first {
+	@include headline;
+
+	font-size: 34px;
+}
+
+.headline_second {
+	@include headline;
+
+	font-size: 24px;
+}
+.headline_third {
+	@include headline;
+
+	font-size: 16px;
+}
+.headline_fourth {
+	@include headline;
+
+	font-size: 12px;
+}

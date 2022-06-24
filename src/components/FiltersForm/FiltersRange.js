@@ -1,4 +1,4 @@
-import { InputField } from "../../../components/InputField/InputField.js";
+import { InputField } from "../InputField/InputField.js";
 import style from "./FiltersRange.module.scss";
 
 export const FiltersRange = ({ setValueFrom, setValueTo, valueFrom, valueTo, name }) => {

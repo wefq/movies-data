@@ -1,10 +1,11 @@
-@import "../../../scss/abstracts/_variables.scss";
-@import "../../../scss/abstracts/_mixins.scss";
+@import "../../scss/abstracts/_variables.scss";
+@import "../../scss/abstracts/_mixins.scss";
 
-.filters_container {
+.filters {
 	margin-bottom: 30px;
 	padding: 20px;
-	background-color: $second-white;
+	background: $white;
+	box-shadow: $shadow;
 	border-radius: 8px;
 	display: flex;
 	flex-direction: column;
@@ -17,8 +18,10 @@
 	}
 
 	&__control {
-		display: flex;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
 		gap: 15px;
+		width: 25%;
 	}
 
 	span {

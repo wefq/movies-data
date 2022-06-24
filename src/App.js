@@ -15,11 +15,10 @@ function App() {
 				<main>
 					<Routes>
 						<Route path="/" element={<HomePage />} />
+						<Route path="/search" element={<SearchPage />} />
 						<Route path="/filters" element={<FiltersPage />} />
-
 						<Route path="/film/:id/*" element={<MoviePage />} />
 						<Route path="/test" element={<Test />} />
-						<Route path="/search" element={<SearchPage />} />
 					</Routes>
 				</main>
 			</BrowserRouter>

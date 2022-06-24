@@ -1,34 +1,17 @@
 @import "../../scss/abstracts/_variables.scss";
 @import "../../scss/abstracts/_mixins.scss";
 
-.filter_range {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	align-items: center;
+.input_range {
+	@include input-field;
+	appearance: textfield;
+	border: none;
+	outline: none;
+	padding: 5px 10px;
+	background: transparent;
+	border-bottom: 1px solid $black;
 
-	// display: flex;
-	gap: 10px;
-	width: 100%;
-
-	span{
-		grid-column-start: 1; 
-		grid-column-end: 3;
-	}
-
-	&__input {
-		@include input-field;
-
-		appearance: textfield;
-		border: none;
-		outline: none;
-		padding: 5px 10px;
-
-		background: transparent;
-		border-bottom: 1px solid $black;
-
-		&::placeholder {
-			color: $additional-color;
-			opacity: 0.5;
-		}
+	&::placeholder {
+		color: $additional-color;
+		opacity: 0.5;
 	}
 }

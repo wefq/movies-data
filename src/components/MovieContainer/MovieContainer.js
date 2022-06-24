@@ -6,7 +6,7 @@ import style from "./MovieContainer.module.scss";
 export const MovieContainer = ({ data, currentPage, paginate }) => {
 	return (
 		<Fragment>
-			<div className={style.movie_box}>
+			<div className={style.movies_box}>
 				{data &&
 					data.items.map((movie) => {
 						return <MovieCard movie={movie} key={movie.kinopoiskId} />;

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { CustLink } from "../Typography/СustLink/CustLink";
 import style from "./Navbar.module.scss";
 
 export const Navbar = () => {
@@ -6,14 +7,11 @@ export const Navbar = () => {
 		<nav>
 			<ul className={style.nav_list}>
 				<li>
-					<Link className="header_link" to="/">
-						Главная
-					</Link>
+					<CustLink type="header" href="/" children="Главная" />
 				</li>
+
 				<li>
-					<Link className="header_link" to="/filters">
-						Поиск по фильтрам
-					</Link>
+					<CustLink type="header" href="/filters" children="Поиск по фильтрам" />
 				</li>
 			</ul>
 		</nav>

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Headline } from "../Typography/Headline/Headline.js";
 import style from "./MovieCard.module.scss";
 
 export const MovieCard = ({ movie }) => {
@@ -9,7 +10,7 @@ export const MovieCard = ({ movie }) => {
 			</div>
 
 			<div className={style.movie_card__content}>
-				{movie.nameRu ? <h3 className="headline_third">{movie.nameRu}</h3> : <h3>{movie.nameOriginal}</h3>}
+				<Headline level={3}>{movie.nameRu ? movie.nameRu : movie.nameOriginal}</Headline>
 
 				<p className={style.movie_card__year}>{movie.year} год</p>
 
@@ -24,7 +25,7 @@ export const MovieCard = ({ movie }) => {
 				</div>
 			</div>
 
-			<Link className={style.movie_card__link} to={`/film/${movie.kinopoiskId}`}></Link>
+			<Link className={style.movie_card__link} to={`/film/${movie.kinopoiskId}`} />
 		</div>
 	);
 };

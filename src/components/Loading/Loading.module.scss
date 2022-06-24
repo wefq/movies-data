@@ -1,6 +1,6 @@
 @import "../../scss/abstracts/_variables.scss";
 
-.loading_container {
+.loading {
 	height: calc(90vh - $header-height);
 	width: 100%;
     display: flex;
@@ -9,7 +9,7 @@
 
 }
 
-.lds_dual_ring {
+.ring {
 	display: inline-block;
 	width: 80px;
 	height: 80px;
@@ -21,13 +21,14 @@
 		height: 64px;
 		margin: 8px;
 		border-radius: 50%;
-		border: 6px solid $white;
-		border-color: $white transparent $accent-color transparent;
-		animation: lds-dual-ring 1.2s linear infinite;
+		border: 6px solid $black;
+		box-shadow: $shadow;
+		border-color: $black transparent $black transparent;
+		animation: ring 1.2s linear infinite;
 	}
 }
 
-@keyframes lds-dual-ring {
+@keyframes ring {
 	0% {
 		transform: rotate(0deg);
 	}

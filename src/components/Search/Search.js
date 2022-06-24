@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { InputField } from "../InputField/InputField.js";
-import { Button } from "../Button/Button.js";
+import { CustLink } from "../Typography/СustLink/CustLink.js";
 import style from "./Search.module.scss";
 
 export const Search = () => {
@@ -16,7 +16,7 @@ export const Search = () => {
 		<div className={style.search_bar}>
 			<InputField type="text" value={searchWord} onChange={(e) => setSearchWord(e.target.value)} onKeyDown={handleKey} />
 
-			<Link children="поиск" to="/search" state={{ stateParam: searchWord }} />
+			<CustLink type="empty" children="поиск" href="/search" state={{ stateParam: searchWord }} />
 		</div>
 	);
 };

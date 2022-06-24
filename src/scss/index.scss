@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
 @import "./abstracts/_variables.scss";
 @import "./abstracts/mixins.scss";
-@import "./typography/typography.scss";
 
 * {
 	margin: 0;
@@ -12,20 +11,20 @@
 html {
 	font-style: normal;
 	scrollbar-width: thin;
-    scrollbar-color: $black $additional-color;
+	scrollbar-color: $black $additional-color;
 }
 
 ::-webkit-scrollbar {
-    width: 5px;
+	width: 5px;
 }
 
 ::-webkit-scrollbar-track {
-    border-radius: 5px;
+	border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: $accent-color;
-    border-radius: 5px;
+	background-color: $accent-color;
+	border-radius: 5px;
 }
 
 a {
@@ -41,7 +40,8 @@ ul {
 }
 
 body {
-	background: $primary-color;
+	background: $background-main;
+	color: $black;
 	margin: 0;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -63,7 +63,7 @@ body {
 		display: none !important;
 	}
 
-	&__menu{
+	&__menu {
 		background-color: $additional-color !important;
 	}
 
@@ -76,15 +76,14 @@ body {
 		border-radius: 0 !important;
 	}
 
-	&__option{
+	&__option {
 		color: $white !important;
 		font-size: 16px;
-		&--is-focused{
+		&--is-focused {
 			background-color: $black !important;
 			cursor: pointer !important;
-			
 		}
-		&--is-selected{
+		&--is-selected {
 			background-color: $black !important;
 		}
 	}
@@ -92,17 +91,9 @@ body {
 	&__single-value {
 		@include input-field;
 	}
-	
+
 	&__placeholder {
 		color: $additional-color !important;
 		opacity: 0.5 !important;
 	}
-}
-
-.accent{
-	background-color: $accent-color;
-}
-
-.primary{
-	background-color: $primary-color;
 }

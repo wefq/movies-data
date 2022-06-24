@@ -3,7 +3,8 @@
 .header {
 	height: 70px;
 	margin-bottom: 30px;
-	background: $accent-color;
+	background: $white;
+	box-shadow: $shadow;
 	display: flex;
 
 	&__container {
