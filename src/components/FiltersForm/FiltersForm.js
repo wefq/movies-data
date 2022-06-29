@@ -15,7 +15,7 @@ export const FiltersForm = ({ setCurrentPage, setParams }) => {
 	const [ratingFrom, setRatingFrom] = useState("");
 	const [ratingTo, setRatingTo] = useState("");
 
-	const { data, isPending, error } = useFetch(`/films/filters`);
+	const { data, isPending, error } = useFetch(`/v2.2/films/filters`);
 
 	const GENRE_OPTIONS = [];
 	const COUNTRY_OPTIONS = [];

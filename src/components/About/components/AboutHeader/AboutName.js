@@ -1,9 +1,9 @@
-import { Headline } from "../../Typography/Headline/Headline.js";
-import style from "./MovieHeader.module.scss";
+import { Headline } from "../../../Typography/Headline/Headline.js";
+import style from "./AboutHeader.module.scss";
 
-export const MovieHeader = ({ data }) => {
+export const AboutName = ({ data }) => {
 	return (
-		<div className={style.movie_header}>
+		<div className={style.header}>
 			<Headline level={1}>{data.nameRu ? data.nameRu : data.nameOriginal}</Headline>
 
 			{data.nameRu && <Headline level={2}>{data.nameOriginal}</Headline>}
