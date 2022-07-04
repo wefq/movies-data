@@ -57,3 +57,29 @@ switch (type) {
 	}
 
 ______________________BUTTON DRAFT________________________
+
+
+______________________STAFF LIST__________________________
+	const getProffesions = () => {
+		const professions = [];
+		data.map((item) => {
+			if (!professions.includes(item.professionText)) {
+				professions.push(item.professionText);
+			}
+		});
+		return professions;
+	};
+
+	const vot = () => {
+		const profs = getProffesions();
+
+		profs.map((item) => {
+			console.log(`____________${item}____________`);
+			data.map((staf) => {
+				if (staf.professionText === item) {
+					console.log(staf.nameEn);
+				}
+			});
+		});
+	};
+______________________STAFF LIST_________________________

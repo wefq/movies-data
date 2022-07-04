@@ -7,13 +7,18 @@ import { AboutMore } from "../../components/About/AboutMore/AboutMore.js";
 
 export const MoviePage = () => {
 	const { id } = useParams();
-	const { data, isPending, error } = useFetch(`/v2.2/films/${id}`);
+
+	const { data: movie, isPending, error } = useFetch(`/v2.2/films/${id}`);
+	const { data: boxOffice } = useFetch(`/v2.2/films/${id}/box_office`);
+	const { data: staff } = useFetch(`/v1/staff?filmId=${id}`);
+
+	const data = { movie, boxOffice, staff };
 
 	return (
 		<Section>
 			<ContentLoaded isPending={isPending} error={error}>
-				<AboutMain data={data} />
-				<AboutMore data={data} />
+				<AboutMain data={data}/>
+				<AboutMore movie={movie} />
 			</ContentLoaded>
 		</Section>
 	);

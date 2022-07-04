@@ -16,10 +16,11 @@
 	}
 
 	&__content {
-		padding: 30px 40px;
-		display: flex;
-		flex-direction: column;
+		display: grid;
+		grid-template-columns: 3fr auto;
+
 		gap: 40px;
+		padding: 30px 40px;
 		border-radius: 6px;
 		background: $white;
 		box-shadow: $shadow;

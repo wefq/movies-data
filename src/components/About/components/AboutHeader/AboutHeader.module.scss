@@ -4,6 +4,8 @@
 .container {
 	display: flex;
 	justify-content: space-between;
+	grid-column-start: 1;
+	grid-column-end: 3;
 }
 
 .header {
@@ -14,7 +16,7 @@
 
 	h1 {
 	}
-	
+
 	h2 {
 		color: $secondary-color;
 		font-weight: 400;
