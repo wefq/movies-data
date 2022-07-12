@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { CustLink } from "../Typography/СustLink/CustLink";
 import style from "./Navbar.module.scss";
 

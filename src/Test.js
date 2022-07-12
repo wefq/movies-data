@@ -1,35 +1,68 @@
 import { useState, useEffect } from "react";
+import { useFetch } from "./useFetch";
 
 import style from "./Test.module.scss";
 
 export const Test = () => {
-	// const [data, setData] = useState(null);
-	// const [isPending, setIsPending] = useState(false);
-	// const [error, setError] = useState("");
-	// const URL = "https://api.kinopoisk.dev/"
-	// const TOKEN = "MN69JHN-4DX4YEM-J4S9ED5-0MH17KB"
+	const [text, setText] = useState("");
+	const [genres, setGenres] = useState([]);
+	const [showList, setShowList] = useState(false);
+	const { data, isPending, error } = useFetch(`/v2.2/films/filters`);
 
-	// useEffect(() => {
-	// 	async function fetchData(params) {
-	// 		setIsPending(true);
-	// 		let res = await fetch(URL + params, {
-	// 			method: "GET",
-	// 			headers: {
-				
-	// 			},
-	// 		});
+	useEffect(() => {
+		data && setGenres(data.genres);
+	}, [data]);
 
-	// 		if (!res.ok) throw Error("could not fetch data for that resource");
+	const filteredGenres = genres.filter((item) => {
+		return item.genre.toLowerCase().includes(text.toLowerCase());
+	});
 
-	// 		let json = await res.json();
+	const handleInput = (e) => {
+		setText(e.target.value);
+	};
 
-	// 		setData(json);
-	// 		setIsPending(false);
-	// 	}
+	const handleClickInput = (e) => {
+		e.stopPropagation();
+		e.target.id === "filter" ? setShowList(true) : setShowList(false);
+	};
 
-	// 	fetchData(`movie?token=${TOKEN}&field=id&search=326`)
-	// },[]);
+	const handleClickItem = (e) => {
+		console.log(e.target.innerText);
+		setText(e.target.innerText);
+		setShowList(false);
+	};
 
-	// console.log(data)
-	return <div></div>;
+	useEffect(() => {
+		const handleWindowClick = () => setShowList(false);
+
+		if (showList) {
+			window.addEventListener("click", handleWindowClick);
+		} else {
+			window.removeEventListener("click", handleWindowClick);
+		}
+
+		return () => window.removeEventListener("click", handleWindowClick);
+	}, [showList, setShowList]);
+
+	return (
+		<div>
+			<div className={style.filter}>
+				<div className={style.filter__input_box}>
+					<input className={style.filter} type="text" id="filter" value={text} onChange={handleInput} onClick={handleClickInput} />
+
+					{showList && <span>&#215;</span>}
+				</div>
+
+				{showList && (
+					<div className={style.filter__list}>
+						{filteredGenres.map((item) => (
+							<div className={style.filter__list__item} key={item.id} onClick={handleClickItem}>
+								{item.genre}
+							</div>
+						))}
+					</div>
+				)}
+			</div>
+		</div>
+	);
 };

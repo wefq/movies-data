@@ -1,14 +1,19 @@
-@import "./scss/abstracts/variables";
-@import "./scss/abstracts//mixins";
+@import "../../scss/abstracts/_variables.scss";
+@import "../../scss/abstracts/_mixins.scss";
 
 .filter {
+    width: 100%;
+    position: relative;
+
+
 	&__input_box {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 		gap: 10px;
-		padding: 5px 10px;
+		padding: 5px 0;
 		border-bottom: 1px solid $black;
+		
 
 		input {
 			@include input-field;
@@ -18,15 +23,19 @@
 			background: transparent;
 			width: 100%;
 		}
-
-		span{
-			font-size: 20px;
-			line-height: 10px;
-			cursor: pointer;
-		}
 	}
 
+    &__delete {
+        font-size: 20px;
+        line-height: 10px;
+        cursor: pointer;
+    }
+
 	&__list {
+        position: absolute;
+        width: 100%;
+        z-index: 1;
+       
 		max-height: 200px;
 		overflow: hidden;
 		overflow-y: auto;

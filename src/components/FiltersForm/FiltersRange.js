@@ -1,5 +1,5 @@
 import { InputField } from "../InputField/InputField.js";
-import style from "./FiltersRange.module.scss";
+import style from "./FiltersForm.module.scss";
 
 export const FiltersRange = ({ setValueFrom, setValueTo, valueFrom, valueTo, name }) => {
 	return (

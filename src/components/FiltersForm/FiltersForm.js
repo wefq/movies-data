@@ -6,8 +6,8 @@ import { Button } from "../Button/Button.js";
 import style from "./FiltersForm.module.scss";
 
 export const FiltersForm = ({ setCurrentPage, setParams }) => {
-	const [genre, setGenre] = useState(null);
-	const [country, setCountry] = useState(null);
+	const [genre, setGenre] = useState("");
+	const [country, setCountry] = useState("");
 
 	const [yearFrom, setYearFrom] = useState("");
 	const [yearTo, setYearTo] = useState("");
@@ -20,8 +20,8 @@ export const FiltersForm = ({ setCurrentPage, setParams }) => {
 	const GENRE_OPTIONS = [];
 	const COUNTRY_OPTIONS = [];
 
-	data && data.genres.map((item) => GENRE_OPTIONS.push({ value: item.id, label: item.genre }));
-	data && data.countries.map((item) => COUNTRY_OPTIONS.push({ value: item.id, label: item.country }));
+	data && data.genres.map((item) => GENRE_OPTIONS.push({ id: item.id, value: item.genre }));
+	data && data.countries.map((item) => COUNTRY_OPTIONS.push({ id: item.id, value: item.country }));
 
 	const handleGenreChange = (value) => {
 		setGenre(value);
@@ -32,13 +32,15 @@ export const FiltersForm = ({ setCurrentPage, setParams }) => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-
 		setParams("");
 		let parameters = "";
 		const fieldsValues = [];
 
-		genre && fieldsValues.push({ paramName: "genres", paramId: genre.value });
-		country && fieldsValues.push({ paramName: "countries", paramId: country.value });
+		const findGenre = GENRE_OPTIONS.find((item) => item.value === genre);
+		const findCountry = COUNTRY_OPTIONS.find((item) => item.value === country);
+
+		findGenre.value && fieldsValues.push({ paramName: "genres", paramId: findGenre.id });
+		findCountry.value && fieldsValues.push({ paramName: "countries", paramId: findCountry.id });
 
 		yearFrom && fieldsValues.push({ paramName: "yearFrom", paramId: yearFrom });
 		yearTo && fieldsValues.push({ paramName: "yearTo", paramId: yearTo });
@@ -55,8 +57,8 @@ export const FiltersForm = ({ setCurrentPage, setParams }) => {
 	};
 
 	const handleClear = () => {
-		setGenre(null);
-		setCountry(null);
+		setGenre("");
+		setCountry("");
 		setYearFrom("");
 		setYearTo("");
 		setRatingFrom("");

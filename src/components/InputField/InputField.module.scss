@@ -1,7 +1,7 @@
 @import "../../scss/abstracts/_variables.scss";
 @import "../../scss/abstracts/_mixins.scss";
 
-.input_range {
+.input {
 	@include input-field;
 	appearance: textfield;
 	border: none;
@@ -9,6 +9,7 @@
 	padding: 5px 10px;
 	background: transparent;
 	border-bottom: 1px solid $black;
+	width: 100%;
 
 	&::placeholder {
 		color: $additional-color;
