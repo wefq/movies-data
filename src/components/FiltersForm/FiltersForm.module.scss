@@ -18,26 +18,38 @@
 	}
 
 	&__control {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
+		display: flex;
+		justify-content: space-between;
 		gap: 15px;
-		width: 25%;
+		width: 35%;
 	}
 
 	span {
 		@include form-headline;
 	}
+
+	@media (max-width: 700px){
+		&__control,&__form_group{
+			flex-direction: column;
+		}
+		&__control{
+			width: 100%;
+		}
+	}
 }
 
 .filter_range {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	align-items: center;
+	display: flex;
+	flex-direction: column;
 	gap: 10px;
 	width: 100%;
+}
 
-	span{
-		grid-column-start: 1; 
-		grid-column-end: 3;
-	}
+.fields{
+	display: flex;
+	gap: 10px;
+}
+
+.select_container {
+	width: 100%;
 }

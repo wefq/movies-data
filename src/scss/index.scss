@@ -45,55 +45,9 @@ body {
 	margin: 0;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	position: relative;
 }
 
-.select_container {
-	width: 100%;
-}
-
-.custom_select {
-	&__value-container:focus-visible,
-	&__single-value:focus-visible,
-	&__input-container:focus-visible,
-	&__placeholder:focus-visible {
-		outline: none !important;
-	}
-
-	&__indicators {
-		display: none !important;
-	}
-
-	&__menu {
-		background-color: $additional-color !important;
-	}
-
-	&__control {
-		background: none !important;
-		outline: none !important;
-		border: none !important;
-		box-shadow: none !important;
-		border-bottom: 1px solid $accent-color !important;
-		border-radius: 0 !important;
-	}
-
-	&__option {
-		color: $white !important;
-		font-size: 16px;
-		&--is-focused {
-			background-color: $black !important;
-			cursor: pointer !important;
-		}
-		&--is-selected {
-			background-color: $black !important;
-		}
-	}
-
-	&__single-value {
-		@include input-field;
-	}
-
-	&__placeholder {
-		color: $additional-color !important;
-		opacity: 0.5 !important;
-	}
+.main {
+	margin-top: 90px;
 }

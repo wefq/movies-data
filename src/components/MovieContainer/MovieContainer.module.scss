@@ -1,7 +1,13 @@
-@import '../../scss/abstracts/_variables.scss';
+@import "../../scss/abstracts/_variables.scss";
 
 .movies_box {
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	display: flex;
+	flex-wrap: wrap;
 	gap: 30px;
+	@media (max-width: 750px) {
+		& {
+			justify-content: center;
+		}
+	}
 }
+

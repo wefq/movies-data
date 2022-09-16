@@ -1,11 +1,15 @@
-@import "../../../../scss/abstracts/_variables.scss";
-@import "../../../../scss/abstracts/_mixins.scss";
+@import "../../../scss/abstracts/_variables.scss";
+@import "../../../scss/abstracts/_mixins.scss";
 
 .container {
 	display: flex;
-	justify-content: space-between;
+	flex-direction: column;
 	grid-column-start: 1;
 	grid-column-end: 3;
+	gap: 20px;
+	@media (max-width: 1024px) {
+		grid-column: unset;
+	}
 }
 
 .header {
@@ -49,8 +53,7 @@
 
 .description_ratings {
 	display: flex;
-	flex-direction: column;
-	gap: 10px;
+	gap: 50px;
 }
 
 .rating {

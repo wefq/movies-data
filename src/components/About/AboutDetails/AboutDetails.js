@@ -1,4 +1,4 @@
-import { Headline } from "../../../Typography/Headline/Headline.js";
+import { Headline } from "../../Typography/Headline/Headline.js";
 import { AboutField } from "./AboutField.js";
 import style from "./AboutDetails.module.scss";
 

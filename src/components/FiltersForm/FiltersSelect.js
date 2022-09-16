@@ -1,11 +1,11 @@
 import { CustomSelect } from "../CustomSelect/CustomSelect";
-import "../../scss/index.scss";
+import style from "./FiltersForm.module.scss";
 
 export const FiltersSelect = ({ options, name, onChange, value }) => {
 	return (
-		<div className="select_container">
+		<div className={style.select_container}>
 			<span>{name}</span>
-			<CustomSelect options={options} value={value} onChange={onChange}  />
+			<CustomSelect options={options} value={value} onChange={onChange} />
 		</div>
 	);
 };

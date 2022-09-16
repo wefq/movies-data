@@ -12,7 +12,7 @@ function App() {
 			<BrowserRouter>
 				<Header />
 
-				<main>
+				<main className='main'>
 					<Routes>
 						<Route path="/" element={<HomePage />} />
 						<Route path="/search" element={<SearchPage />} />

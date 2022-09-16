@@ -15,13 +15,14 @@ export const MovieCard = ({ movie }) => {
 				<p className={style.movie_card__year}>{movie.year} год</p>
 
 				<div className={style.movie_card__ratings}>
-					<div className={style.movie_card__rating}>
-						IMDB: <span className="rating-highlight">{movie.ratingImdb}</span>
-					</div>
-
-					<div className={style.movie_card__rating}>
+					{movie.ratingImdb && (
+						<div className={style.movie_card__rating}>
+							IMDB: <span className="rating-highlight">{movie.ratingImdb}</span>
+						</div>
+					)}
+					{movie.ratingKinopoisk && <div className={style.movie_card__rating}>
 						Kinopoisk: <span className="rating-highlight">{movie.ratingKinopoisk}</span>
-					</div>
+					</div>}
 				</div>
 			</div>
 

@@ -1,7 +1,7 @@
-import { AboutHeader } from "../components/AboutHeader/AboutHeader.js";
-import { AboutDetails } from "../components/AboutDetails/AboutDetails.js";
-import { BoxOffice } from "../components/AboutDetails/BoxOffice.js";
-import { MovieStaff } from "../components/AboutDetails/MovieStaff.js";
+import { AboutHeader } from "../AboutHeader/AboutHeader.js";
+import { AboutDetails } from "../AboutDetails/AboutDetails.js";
+import { BoxOffice } from "../AboutDetails/BoxOffice.js";
+import { MovieStaff } from "../AboutDetails/MovieStaff.js";
 import style from "./AboutMain.module.scss";
 
 export const AboutMain = ({ data }) => {
@@ -16,6 +16,7 @@ export const AboutMain = ({ data }) => {
 				<AboutDetails data={data.movie} />
 				<BoxOffice boxOffice={data.boxOffice} />
 				<MovieStaff type="actor" staff={data.staff} />
+				{/* <MovieStaff type="actor" staff={data.staff} /> */}
 			</div>
 		</div>
 	);

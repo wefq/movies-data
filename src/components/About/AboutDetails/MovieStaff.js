@@ -1,4 +1,4 @@
-import { Headline } from "../../../Typography/Headline/Headline.js";
+import { Headline } from "../../Typography/Headline/Headline.js";
 import style from "./AboutDetails.module.scss";
 
 export const MovieStaff = ({ staff }) => {
@@ -28,7 +28,7 @@ export const MovieStaff = ({ staff }) => {
 			STAFF.push({ nameEn: STAFF_EN[i], nameRu: STAFF_RU[i] });
 		}
 
-		console.log(STAFF);
+		// console.log(STAFF);
 		// console.log(staff.filter((item) => item.professionKey === "DIRECTOR"));
 		// console.log(staff.filter((item) => item.professionKey === "PRODUCER"));
 		// console.log(staff.filter((item) => item.professionKey === "WRITER"));

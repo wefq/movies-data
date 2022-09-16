@@ -25,6 +25,17 @@
 			width: 100%;
 		}
 	}
+
+	@media (max-width: 1024px) {
+		padding: 5px 15px;
+		&:hover {
+			background: $accent-color;
+		}
+
+		&::after {
+			display: none;
+		}
+	}
 }
 
 .footer {

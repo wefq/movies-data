@@ -1,7 +1,7 @@
 import style from "./AboutHeader.module.scss";
 
-const kinopoisk = require("../../../../assets/icons/kinopoisk.png");
-const imdb = require("../../../../assets/icons/imdb.png");
+const kinopoisk = require("../../../assets/icons/kinopoisk.png");
+const imdb = require("../../../assets/icons/imdb.png");
 
 export const AboutRating = ({ rating, votes, type }) => {
 	return (

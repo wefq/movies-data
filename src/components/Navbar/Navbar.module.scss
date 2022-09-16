@@ -1,6 +1,33 @@
 @import "../../scss/abstracts/_variables.scss";
 
+.navbar {
+	display: flex;
+	@media (max-width: 1024px) {
+		order: 1;
+		margin-left: 20px;
+	}
+}
+
 .nav_list {
 	display: flex;
-    gap: 15px;
+	gap: 15px;
+	transition: $transition;
+
+	@media (max-width: 1024px) {
+		flex-direction: column;
+		position: fixed;
+		top: 71px;
+		right: 0;
+		z-index: 1;
+		transform: translate(300px);
+		background: $white;
+		gap: 0;
+		width: 300px;
+		box-shadow: $shadow;
+	}
+}
+
+.show {
+	right: 0;
+	transform: translate(0);
 }

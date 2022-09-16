@@ -1,4 +1,4 @@
-import { Headline } from "../../../Typography/Headline/Headline.js";
+import { Headline } from "../../Typography/Headline/Headline.js";
 import style from "./AboutHeader.module.scss";
 
 export const AboutName = ({ data }) => {

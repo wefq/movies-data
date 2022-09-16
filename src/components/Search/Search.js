@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { InputField } from "../InputField/InputField.js";
 import { CustLink } from "../Typography/СustLink/CustLink.js";
 import style from "./Search.module.scss";

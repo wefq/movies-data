@@ -24,9 +24,8 @@ export const useFetch = (params) => {
 			if (!res.ok) throw Error("could not fetch data for that resource");
 
 			let json = await res.json();
-			
-			// console.log(json)
-			setData(json)
+
+			setData(json);
 			setIsPending(false);
 		}
 
