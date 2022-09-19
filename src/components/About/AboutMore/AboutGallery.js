@@ -16,10 +16,9 @@ export const AboutGallery = ({ images }) => {
 				autoHeight={true}
 				slidesPerView={1}
 				centeredSlides={true}
-				effect={"fade"}
 				lazy={true}
 				autoplay={{
-					delay: 1000,
+					delay: 4000,
 					disableOnInteraction: false,
 				}}
 				modules={[ Lazy, Autoplay]}

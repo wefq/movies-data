@@ -11,10 +11,11 @@ export const MoviePage = () => {
 	const { data: movie } = useFetch(`/v2.2/films/${id}`);
 	const { data: boxOffice } = useFetch(`/v2.2/films/${id}/box_office`);
 	const { data: staff } = useFetch(`/v1/staff?filmId=${id}`);
-	const {data: images} = useFetch(`/v2.2/films/${id}/images?type=STILL&page=1`);
+	const { data: images } = useFetch(`/v2.2/films/${id}/images?type=STILL&page=1`);
+	const { data: awards } = useFetch(`/v2.2/films/${id}/awards`);
 	const { data: facts, isPending, error } = useFetch(`/v2.2/films/${id}/facts`);
 
-	const data = { movie, boxOffice, staff, images, facts};
+	const data = { movie, boxOffice, staff, images, facts, awards };
 
 	return (
 		<Section>

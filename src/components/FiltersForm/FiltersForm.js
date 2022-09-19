@@ -1,11 +1,10 @@
 import { useState } from "react";
-import { useFetch } from "../../useFetch.js";
 import { FiltersSelect } from "./FiltersSelect.js";
 import { FiltersRange } from "./FiltersRange.js";
 import { Button } from "../Button/Button.js";
 import style from "./FiltersForm.module.scss";
 
-export const FiltersForm = ({ setCurrentPage, setParams }) => {
+export const FiltersForm = ({ setCurrentPage, setParams, genresOptions, countriesOptions }) => {
 	const [genre, setGenre] = useState("");
 	const [country, setCountry] = useState("");
 
@@ -14,14 +13,6 @@ export const FiltersForm = ({ setCurrentPage, setParams }) => {
 
 	const [ratingFrom, setRatingFrom] = useState("");
 	const [ratingTo, setRatingTo] = useState("");
-
-	const { data, isPending, error } = useFetch(`/v2.2/films/filters`);
-
-	const GENRE_OPTIONS = [];
-	const COUNTRY_OPTIONS = [];
-
-	data && data.genres.map((item) => GENRE_OPTIONS.push({ id: item.id, value: item.genre }));
-	data && data.countries.map((item) => COUNTRY_OPTIONS.push({ id: item.id, value: item.country }));
 
 	const handleGenreChange = (value) => {
 		setGenre(value);
@@ -36,8 +27,8 @@ export const FiltersForm = ({ setCurrentPage, setParams }) => {
 		let parameters = "";
 		const fieldsValues = [];
 
-		const findGenre = GENRE_OPTIONS.find((item) => item.value === genre);
-		const findCountry = COUNTRY_OPTIONS.find((item) => item.value === country);
+		const findGenre = genresOptions.find((item) => item.value === genre);
+		const findCountry = countriesOptions.find((item) => item.value === country);
 
 		findGenre.value && fieldsValues.push({ paramName: "genres", paramId: findGenre.id });
 		findCountry.value && fieldsValues.push({ paramName: "countries", paramId: findCountry.id });
@@ -68,9 +59,9 @@ export const FiltersForm = ({ setCurrentPage, setParams }) => {
 	return (
 		<form className={style.filters + " container"} onSubmit={handleSubmit}>
 			<div className={style.filters__form_group}>
-				<FiltersSelect options={GENRE_OPTIONS} value={genre} onChange={handleGenreChange} name={"Жанр"} />
+				<FiltersSelect options={genresOptions} value={genre} onChange={handleGenreChange} name={"Жанр"} />
 
-				<FiltersSelect options={COUNTRY_OPTIONS} value={country} onChange={handleCountryChange} name={"Страна"} />
+				<FiltersSelect options={countriesOptions} value={country} onChange={handleCountryChange} name={"Страна"} />
 			</div>
 
 			<div className={style.filters__form_group}>

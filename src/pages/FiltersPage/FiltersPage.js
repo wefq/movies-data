@@ -9,6 +9,13 @@ export const FiltersPage = () => {
 	const [params, setParams] = useState("");
 	const [currentPage, setCurrentPage] = useState(1);
 
+	const { data: filters } = useFetch(`/v2.2/films/filters`);
+	const GENRES = [];
+	const COUNTRIES = [];
+
+	filters && filters.genres.map((item) => GENRES.push({ id: item.id, value: item.genre }));
+	filters && filters.countries.map((item) => COUNTRIES.push({ id: item.id, value: item.country }));
+
 	const { data, isPending, error } = useFetch(`/v2.2/films?${params}page=${currentPage}`);
 
 	const paginate = (number) => {
@@ -17,7 +24,7 @@ export const FiltersPage = () => {
 
 	return (
 		<Section>
-			<FiltersForm setCurrentPage={setCurrentPage} setParams={setParams} />
+			<FiltersForm setCurrentPage={setCurrentPage} setParams={setParams} genresOptions={GENRES} countriesOptions={COUNTRIES} />
 
 			<ContentLoaded isPending={isPending} error={error}>
 				<MovieContainer data={data} currentPage={currentPage} paginate={paginate} />

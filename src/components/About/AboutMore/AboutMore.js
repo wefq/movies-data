@@ -1,12 +1,12 @@
+import { AboutAwards } from "./AboutAwards.js";
 import { AboutDescription } from "./AboutDescription.js";
 import { AboutFacts } from "./AboutFacts.js";
 import { AboutGallery } from "./AboutGallery.js";
 import style from "./AboutMore.module.scss";
 
 export const AboutMore = ({ data }) => {
-	console.log(data.images);
 	return (
-		data && (
+		data.movie && (
 			<div className={style.about_more}>
 				<div className={style.about_more__main}>
 					{data.movie.description && <AboutDescription description={data.movie.description} />}
@@ -15,7 +15,8 @@ export const AboutMore = ({ data }) => {
 				</div>
 
 				<div className={style.about_more__secondary}>
-					<AboutGallery images={data.images.items} />
+					{data.images.items.length > 0 && <AboutGallery images={data.images.items} />}
+					{data.awards.items.length > 0 && <AboutAwards awards={data.awards.items} />}
 				</div>
 			</div>
 		)
