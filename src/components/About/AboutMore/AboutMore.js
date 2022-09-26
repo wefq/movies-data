@@ -6,7 +6,6 @@ import style from "./AboutMore.module.scss";
 
 export const AboutMore = ({ data }) => {
 	return (
-		data.movie && (
 			<div className={style.about_more}>
 				<div className={style.about_more__main}>
 					{data.movie.description && <AboutDescription description={data.movie.description} />}
@@ -19,6 +18,6 @@ export const AboutMore = ({ data }) => {
 					{data.awards.items.length > 0 && <AboutAwards awards={data.awards.items} />}
 				</div>
 			</div>
-		)
+	
 	);
 };
