@@ -14,7 +14,7 @@ export const AboutMore = ({ data }) => {
 				</div>
 
 				<div className={style.about_more__secondary}>
-					{data.images.items.length > 0 && <AboutGallery images={data.images.items} />}
+					{/* {data.images.items.length > 0 && <AboutGallery images={data.images.items} />} */}
 					{data.awards.items.length > 0 && <AboutAwards awards={data.awards.items} />}
 				</div>
 			</div>
