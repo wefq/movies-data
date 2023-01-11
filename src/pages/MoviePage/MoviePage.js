@@ -20,7 +20,6 @@ export const MoviePage = () => {
 
 	useEffect(() => {
 		if (moviePending && boxOfficePending && staffPending && factsPending && awardsPending) {
-			console.log('all loaded')
 			setWait(false)
 		} else {
 			console.log('still loading')

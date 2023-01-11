@@ -6,14 +6,9 @@ import style from "./Search.module.scss";
 export const Search = () => {
 	const [searchWord, setSearchWord] = useState("");
 
-	const handleKey = (e) => {
-		if (e.key === "Enter") {
-		}
-	};
-
 	return (
 		<div className={style.search_bar}>
-			<InputField type="text" value={searchWord} onChange={(e) => setSearchWord(e.target.value)} onKeyDown={handleKey} />
+			<InputField type="text" value={searchWord} onChange={(e) => setSearchWord(e.target.value)} />
 
 			<CustLink type="empty" children="поиск" href="/search" state={{ stateParam: searchWord }} />
 		</div>
